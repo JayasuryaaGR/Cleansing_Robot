@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+    <model name='Robot_Dustbin'>
+        <static>true</static>
+        <pose>0 0 0 0 0 0</pose>
+        <link name="robot_dustbin">
+        <collision name="robot_dustbin_collision">
+            <geometry>
+            <mesh>
+                <uri>$(find artpark_gazebo)/models/robot_dustbin.dae</uri>
+            </mesh>
+            </geometry>
+        </collision>
+        <visual name="robot_dustbin_visual">
+            <geometry>
+            <mesh>
+                <uri>$(find artpark_gazebo)/models/robot_dustbin.dae</uri>
+            </mesh>
+            </geometry>
+        </visual>
+        </link>
+    </model>
+</sdf>

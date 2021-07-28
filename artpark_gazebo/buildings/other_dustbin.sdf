@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+    <model name='Other_Dustbin'>
+        <static>true</static>
+        <pose>0 0 0 0 0 0</pose>
+        <link name="other_dustbin">
+        <collision name="other_dustbin_collision">
+            <geometry>
+            <mesh>
+                <uri>$(find artpark_gazebo)/models/other_dustbin.dae</uri>
+            </mesh>
+            </geometry>
+        </collision>
+        <visual name="other_dustbin_visual">
+            <geometry>
+            <mesh>
+                <uri>$(find artpark_gazebo)/models/other_dustbin.dae</uri>
+            </mesh>
+            </geometry>
+        </visual>
+        </link>
+    </model>
+</sdf>
