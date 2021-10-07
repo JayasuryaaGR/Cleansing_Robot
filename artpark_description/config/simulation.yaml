@@ -1,0 +1,5 @@
+artpark_robot:
+
+  arm_base_joint_effort_controller: 0
+  arm_stretch1_joint_effort_controller: -5
+  arm_stretch2_joint_effort_controller: 0

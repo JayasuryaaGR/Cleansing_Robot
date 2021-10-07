@@ -1,0 +1,2077 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='Yellow_Mark'>
+    <static>true</static>
+    <pose>0 0 0 0 0 0</pose>
+
+    <link name="yellow_mark">
+        <visual name="yellow_mark1_visual">
+            <pose> 0 0 0.001 0 0 0 </pose>
+            <geometry>
+                <box>
+                    <size>0.25 0.02 0.0</size>
+                </box>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/YellowGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark2_visual">
+            <pose> 0.02 0 0.001 0 0 1.2 </pose>
+            <geometry>
+                <box>
+                    <size>0.2 0.02 0.0</size>
+                </box>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/YellowGlow</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+
+    <link name="yellow_mark_water">
+        <pose>0 0 -100 0 0 0</pose>
+        <visual name="yellow_mark_centre1_visual">
+            <pose> 0 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre2_visual">
+            <pose> 0.02 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre4_visual">
+            <pose> 0.04 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre5_visual">
+            <pose> -0.04 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre7_visual">
+            <pose> -0.06 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+        
+        <visual name="yellow_mark_centre8_visual">
+            <pose> 0 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre10_visual">
+            <pose> 0 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre11_visual">
+            <pose> 0 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+        
+        <visual name="yellow_mark_centre13_visual">
+            <pose> 0 -0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre14_visual">
+            <pose> 0.02 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre16_visual">
+            <pose> -0.02 -0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre17_visual">
+            <pose> -0.02 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre19_visual">
+            <pose> 0.04 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre20_visual">
+            <pose> -0.04 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre22_visual">
+            <pose> 0.04 0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre23_visual">
+            <pose> 0.04 -0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre25_visual">
+            <pose> -0.04 0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre26_visual">
+            <pose> -0.04 -0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre28_visual">
+            <pose> 0.06 0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre29_visual">
+            <pose> -0.06 0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre31_visual">
+            <pose> -0.06 -0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre32_visual">
+            <pose> 0.02 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre34_visual">
+            <pose> -0.02 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre35_visual">
+            <pose> -0.02 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre37_visual">
+            <pose> 0.02 -0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre38_visual">
+            <pose> -0.02 0.06 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre40_visual">
+            <pose> 0.04 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre41_visual">
+            <pose> 0.04 -0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre43_visual">
+            <pose> -0.04 -0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre44_visual">
+            <pose> 0.06 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre46_visual">
+            <pose> -0.06 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre47_visual">
+            <pose> -0.06 -0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre49_visual">
+            <pose> 0.06 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_centre50_visual">
+            <pose> -0.06 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top1_visual">
+            <pose> -0.06 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top2_visual">
+            <pose> -0.06 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top4_visual">
+            <pose> -0.04 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top7_visual">
+            <pose> -0.04 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+        
+        <visual name="yellow_mark_top8_visual">
+            <pose> -0.02 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top10_visual">
+            <pose> -0.02 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top12_visual">
+            <pose> -0.02 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top14_visual">
+            <pose> 0.06 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top15_visual">
+            <pose> 0.06 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top17_visual">
+            <pose> 0.04 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> 0.04 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+        
+        <visual name="yellow_mark_top21_visual">
+            <pose> 0.02 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top23_visual">
+            <pose> 0.02 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top25_visual">
+            <pose> 0.02 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top88_visual">
+            <pose> 0.0 0.14 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top89_visual">
+            <pose> 0.0 -0.14 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top3_visual">
+            <pose> -0.06 -0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> -0.04 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.04 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top9_visual">
+            <pose> -0.02 -0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top11_visual">
+            <pose> -0.02 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top13_visual">
+            <pose> -0.02 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.04 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top16_visual">
+            <pose> 0.06 -0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top18_visual">
+            <pose> 0.04 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top19_visual">
+            <pose> 0.04 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top22_visual">
+            <pose> 0.02 -0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top24_visual">
+            <pose> 0.02 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top26_visual">
+            <pose> 0.02 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top3_visual">
+            <pose> -0.14 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top365_visual">
+            <pose> -0.12 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top93_visual">
+            <pose> -0.10 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> -0.12 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.10 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> -0.08 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top50_visual">
+            <pose> -0.08 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+         <visual name="yellow_mark_top3_visual">
+            <pose> -0.12 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> -0.12 -0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.10 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.10 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> -0.08 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top50_visual">
+            <pose> -0.08 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top3_visual">
+            <pose> 0.14 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top365_visual">
+            <pose> 0.12 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top93_visual">
+            <pose> 0.10 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> 0.12 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> 0.10 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> 0.08 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top50_visual">
+            <pose> 0.08 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top3_visual">
+            <pose> 0.12 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> 0.12 -0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> 0.10 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> 0.10 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> 0.08 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top50_visual">
+            <pose> 0.08 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+
+    <!--
+    <link name="yellow_mark_top">
+        <pose>0 0 -100 0 0 0</pose>
+        <visual name="yellow_mark_top1_visual">
+            <pose> -0.06 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top2_visual">
+            <pose> -0.06 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top4_visual">
+            <pose> -0.04 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top7_visual">
+            <pose> -0.04 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+        
+        <visual name="yellow_mark_top8_visual">
+            <pose> -0.02 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top10_visual">
+            <pose> -0.02 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top12_visual">
+            <pose> -0.02 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top14_visual">
+            <pose> 0.06 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top15_visual">
+            <pose> 0.06 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top17_visual">
+            <pose> 0.04 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> 0.04 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+        
+        <visual name="yellow_mark_top21_visual">
+            <pose> 0.02 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top23_visual">
+            <pose> 0.02 0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top25_visual">
+            <pose> 0.02 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top88_visual">
+            <pose> 0.0 0.14 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+
+    <link name="yellow_mark_bottom">
+        <pose>0 0 -100 0 0 0</pose>
+        <visual name="yellow_mark_top89_visual">
+            <pose> 0.0 -0.14 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top3_visual">
+            <pose> -0.06 -0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> -0.04 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.04 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top9_visual">
+            <pose> -0.02 -0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top11_visual">
+            <pose> -0.02 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top13_visual">
+            <pose> -0.02 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.04 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top16_visual">
+            <pose> 0.06 -0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top18_visual">
+            <pose> 0.04 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top19_visual">
+            <pose> 0.04 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top22_visual">
+            <pose> 0.02 -0.12 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top24_visual">
+            <pose> 0.02 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top26_visual">
+            <pose> 0.02 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+    
+    <link name="yellow_mark_top_left">
+        <pose>0 0 -100 0 0 0</pose>
+        <visual name="yellow_mark_top3_visual">
+            <pose> -0.14 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top365_visual">
+            <pose> -0.12 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top93_visual">
+            <pose> -0.10 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> -0.12 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.10 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> -0.08 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top50_visual">
+            <pose> -0.08 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+    
+    <link name="yellow_mark_bottom_left">
+        <pose>0 0 -100 0 0 0</pose>
+        <visual name="yellow_mark_top3_visual">
+            <pose> -0.12 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> -0.12 -0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.10 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> -0.10 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> -0.08 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top50_visual">
+            <pose> -0.08 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+    
+    <link name="yellow_mark_top_right">
+        <pose>0 0 -100 0 0 0</pose>
+        <visual name="yellow_mark_top3_visual">
+            <pose> 0.14 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top365_visual">
+            <pose> 0.12 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top93_visual">
+            <pose> 0.10 0 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> 0.12 0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> 0.10 0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> 0.08 0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top50_visual">
+            <pose> 0.08 0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+    
+    <link name="yellow_mark_bottom_right">
+        <pose>0 0 -100 0 0 0</pose>
+        <visual name="yellow_mark_top3_visual">
+            <pose> 0.12 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top5_visual">
+            <pose> 0.12 -0.02 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> 0.10 -0.04 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top6_visual">
+            <pose> 0.10 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top20_visual">
+            <pose> 0.08 -0.10 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+
+        <visual name="yellow_mark_top50_visual">
+            <pose> 0.08 -0.08 0 0 0 0 </pose>
+            <geometry>
+                <sphere>
+                    <radius>0.005</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/BlueGlow</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+    -->
+
+  </model>
+</sdf>

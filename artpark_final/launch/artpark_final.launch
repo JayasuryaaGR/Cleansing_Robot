@@ -1,0 +1,361 @@
+<launch>
+
+  <!-- Robot pose -->
+  <arg name="x_robot" default="2"/>
+  <arg name="y_robot" default="-3"/>
+  <arg name="z_robot" default="0"/>
+  <arg name="roll_robot" default="0"/>
+  <arg name="pitch_robot" default="0"/>
+  <arg name="yaw_robot" default="0"/>
+
+  <!-- House pose -->
+  <arg name="x_house" default="0"/>
+  <arg name="y_house" default="0"/>
+  <arg name="z_house" default="0"/>
+  <arg name="roll_house" default="0"/>
+  <arg name="pitch_house" default="0"/>
+  <arg name="yaw_house" default="0"/>
+
+  <!-- Entrance pose -->
+  <arg name="x_entrance" default="4.82"/>
+  <arg name="y_entrance" default="2.866"/>
+  <arg name="z_entrance" default="0"/>
+  <arg name="roll_entrance" default="0"/>
+  <arg name="pitch_entrance" default="0"/>
+  <arg name="yaw_entrance" default="0.0025"/>
+
+  <!-- Path1 pose -->
+  <arg name="x_path1" default="-0.085"/>
+  <arg name="y_path1" default="0"/>
+  <arg name="z_path1" default="0"/>
+  <arg name="roll_path1" default="0"/>
+  <arg name="pitch_path1" default="0"/>
+  <arg name="yaw_path1" default="0"/>
+
+  <!-- Robot Dustbin -->
+  <arg name="x_robot_dustbin" default="0.8"/>
+  <arg name="y_robot_dustbin" default="-1.8"/>
+  <arg name="z_robot_dustbin" default="0.25"/>
+  <arg name="roll_robot_dustbin" default="0"/>
+  <arg name="pitch_robot_dustbin" default="0"/>
+  <arg name="yaw_robot_dustbin" default="0"/>
+
+  <!-- Other Dustbin -->
+  <arg name="x_other_dustbin" default="0.5"/>
+  <arg name="y_other_dustbin" default="0.7"/>
+  <arg name="z_other_dustbin" default="0.125"/>
+  <arg name="roll_other_dustbin" default="0"/>
+  <arg name="pitch_other_dustbin" default="0"/>
+  <arg name="yaw_other_dustbin" default="0"/>
+
+  <!-- Yellow Mark -->
+  <arg name="x_yellow_mark" default="0"/>
+  <arg name="y_yellow_mark" default="0"/>
+  <arg name="z_yellow_mark" default="0"/>
+  <arg name="roll_yellow_mark" default="0"/>
+  <arg name="pitch_yellow_mark" default="0"/>
+  <arg name="yaw_yellow_mark" default="0"/>
+
+  <!-- Green Mark -->
+  <arg name="x_green_mark" default="0.5"/>
+  <arg name="y_green_mark" default="-0.7"/>
+  <arg name="z_green_mark" default="0"/>
+  <arg name="roll_green_mark" default="0"/>
+  <arg name="pitch_green_mark" default="0"/>
+  <arg name="yaw_green_mark" default="0"/>
+
+  <!-- Red Mark -->
+  <arg name="x_red_mark" default="-1"/>
+  <arg name="y_red_mark" default="-0.5"/>
+  <arg name="z_red_mark" default="0"/>
+  <arg name="roll_red_mark" default="0"/>
+  <arg name="pitch_red_mark" default="0"/>
+  <arg name="yaw_red_mark" default="0"/>
+
+  <!-- Purple Mark -->
+  <arg name="x_purple_mark" default="-0.5"/>
+  <arg name="y_purple_mark" default="-1"/>
+  <arg name="z_purple_mark" default="0"/>
+  <arg name="roll_purple_mark" default="0"/>
+  <arg name="pitch_purple_mark" default="0"/>
+  <arg name="yaw_purple_mark" default="0"/>
+
+  <!-- Beverage Can Orange-->
+  <arg name="x_beverage_can_orange" default="0.2"/>
+  <arg name="y_beverage_can_orange" default="0.2"/>
+  <arg name="z_beverage_can_orange" default="0"/>
+  <arg name="roll_beverage_can_orange" default="1.5708"/>
+  <arg name="pitch_beverage_can_orange" default="0"/>
+  <arg name="yaw_beverage_can_orange" default="0"/>
+
+  <!-- Beverage Can Red-->
+  <arg name="x_beverage_can_red" default="0.6"/>
+  <arg name="y_beverage_can_red" default="-0.2"/>
+  <arg name="z_beverage_can_red" default="0"/>
+  <arg name="roll_beverage_can_red" default="1.5708"/>
+  <arg name="pitch_beverage_can_red" default="0"/>
+  <arg name="yaw_beverage_can_red" default="0"/>
+
+  <!-- Beverage Can Yellow-->
+  <arg name="x_beverage_can_yellow" default="0"/>
+  <arg name="y_beverage_can_yellow" default="-1.5"/>
+  <arg name="z_beverage_can_yellow" default="0"/>
+  <arg name="roll_beverage_can_yellow" default="1.5708"/>
+  <arg name="pitch_beverage_can_yellow" default="0"/>
+  <arg name="yaw_beverage_can_yellow" default="0"/>
+
+  <!-- Paper Cup Orange-->
+  <arg name="x_paper_cup_orange" default="-0.5"/>
+  <arg name="y_paper_cup_orange" default="0"/>
+  <arg name="z_paper_cup_orange" default="0.02"/>
+  <arg name="roll_paper_cup_orange" default="0"/>
+  <arg name="pitch_paper_cup_orange" default="1.4"/>
+  <arg name="yaw_paper_cup_orange" default="0"/>
+
+  <!-- Paper Cup Yellow-->
+  <arg name="x_paper_cup_yellow" default="-0.5"/>
+  <arg name="y_paper_cup_yellow" default="-0.5"/>
+  <arg name="z_paper_cup_yellow" default="0.02"/>
+  <arg name="roll_paper_cup_yellow" default="0"/>
+  <arg name="pitch_paper_cup_yellow" default="1.4"/>
+  <arg name="yaw_paper_cup_yellow" default="0"/>
+
+  <arg name="x_washbasin_water" default="0"/>
+  <arg name="y_washbasin_water" default="0"/>
+  <arg name="z_washbasin_water" default="0"/>
+  <arg name="roll_washbasin_water" default="0"/>
+  <arg name="pitch_washbasin_water" default="0"/>
+  <arg name="yaw_washbasin_water" default="0"/>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find artpark_description)/config/robot_control.yaml" command="load"/>
+  <!-- <rosparam file="$(find artpark_description)/config/simulation.yaml" command="load"/> -->
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find artpark_final)/config/ros_controllers.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/artpark_robot" 
+    args="trash_holder_joint_effort_controller
+          front_left_wheel_joint_effort_controller
+          front_right_wheel_joint_effort_controller
+          rear_left_wheel_joint_effort_controller
+          rear_right_wheel_joint_effort_controller
+          joint_state_controller
+          "/> -->
+  
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen"
+    args="joint_state_controller
+          panda_hand_controller
+          panda_arm_controller"/>
+
+          <!-- trash_holder_joint_effort_controller
+          front_left_caster_joint_effort_controller
+          front_right_caster_joint_effort_controller
+          rear_left_caster_joint_effort_controller
+          rear_right_caster_joint_effort_controller -->
+
+  <!-- arm_base_joint_effort_controller
+          arm_stretch1_joint_effort_controller
+          arm_stretch2_joint_effort_controller
+          finger_left_joint_effort_controller
+          finger_right_joint_effort_controller -->
+
+  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch" /> -->
+  <include file="$(find artpark_final)/launch/artpark_world.launch" />
+
+  <include file="$(find artpark_final)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+  <include file="$(find artpark_final)/launch/move_group.launch" />
+  <!-- <include file="$(find artpark_final)/launch/moveit_rviz.launch" /> -->
+
+  <!-- <include file="$(find panda_moveit_config)/launch/gazebo.launch" /> -->
+
+  <param name="house" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/house.sdf'" />
+  <node name="house_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param house -sdf -model Artpark_House
+          -x $(arg x_house) -y $(arg y_house) -z $(arg z_house)
+          -R $(arg roll_house) -P $(arg pitch_house) -Y $(arg yaw_house)" />
+
+  <param name="robot_dustbin" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/robot_dustbin.sdf'" />
+  <node name="robot_dustbin_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param robot_dustbin -sdf -model Robot_Dustbin
+          -x $(arg x_robot_dustbin) -y $(arg y_robot_dustbin) -z $(arg z_robot_dustbin)
+          -R $(arg roll_robot_dustbin) -P $(arg pitch_robot_dustbin) -Y $(arg yaw_robot_dustbin)" />
+  
+  <param name="other_dustbin" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/other_dustbin.sdf'" />
+  <node name="other_dustbin_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param other_dustbin -sdf -model Other_Dustbin
+          -x $(arg x_other_dustbin) -y $(arg y_other_dustbin) -z $(arg z_other_dustbin)
+          -R $(arg roll_other_dustbin) -P $(arg pitch_other_dustbin) -Y $(arg yaw_other_dustbin)" />
+
+
+
+
+
+
+  <!-- <param name="entrance" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/entrance.sdf'" />
+  <node name="entrance_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param entrance -sdf -model Entrance
+          -x $(arg x_entrance) -y $(arg y_entrance) -z $(arg z_entrance)
+          -R $(arg roll_entrance) -P $(arg pitch_entrance) -Y $(arg yaw_entrance)" />
+
+  <param name="path1" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/path1.sdf'" />
+  <node name="path1_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param path1 -sdf -model Path1
+          -x $(arg x_path1) -y $(arg y_path1) -z $(arg z_path1)
+          -R $(arg roll_path1) -P $(arg pitch_path1) -Y $(arg yaw_path1)" /> -->
+
+
+
+
+
+  <param name="yellow_mark" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/yellow_mark.sdf'" />
+  <node name="yellow_mark_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param yellow_mark -sdf -model Yellow_Mark
+          -x $(arg x_yellow_mark) -y $(arg y_yellow_mark) -z $(arg z_yellow_mark)
+          -R $(arg roll_yellow_mark) -P $(arg pitch_yellow_mark) -Y $(arg yaw_yellow_mark)" />
+
+  <param name="green_mark" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/green_mark.sdf'" />
+  <node name="green_mark_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param green_mark -sdf -model Green_Mark
+          -x $(arg x_green_mark) -y $(arg y_green_mark) -z $(arg z_green_mark)
+          -R $(arg roll_green_mark) -P $(arg pitch_green_mark) -Y $(arg yaw_green_mark)" />
+
+  <!-- <param name="purple_mark" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/purple_mark.sdf'" />
+  <node name="purple_mark_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param purple_mark -sdf -model Purple_Mark
+          -x $(arg x_purple_mark) -y $(arg y_purple_mark) -z $(arg z_purple_mark)
+          -R $(arg roll_purple_mark) -P $(arg pitch_purple_mark) -Y $(arg yaw_purple_mark)" /> -->
+  
+  <param name="red_mark" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/red_mark.sdf'" />
+  <node name="red_mark_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param red_mark -sdf -model Red_Mark
+          -x $(arg x_red_mark) -y $(arg y_red_mark) -z $(arg z_red_mark)
+          -R $(arg roll_red_mark) -P $(arg pitch_red_mark) -Y $(arg yaw_red_mark)" />
+
+  <param name="washbasin_water" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/washbasin_water.sdf'" />
+  <node name="washbasin_water_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param washbasin_water -sdf -model Washbasin_Water
+          -x $(arg x_washbasin_water) -y $(arg y_washbasin_water) -z $(arg z_washbasin_water)
+          -R $(arg roll_washbasin_water) -P $(arg pitch_washbasin_water) -Y $(arg yaw_washbasin_water)" />
+
+
+
+
+
+  <param name="beverage_can_orange" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/beverage_can_orange.sdf'" />
+  <node name="beverage_can_orange_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param beverage_can_orange -sdf -model Beverage_Can_Orange
+          -x $(arg x_beverage_can_orange) -y $(arg y_beverage_can_orange) -z $(arg z_beverage_can_orange)
+          -R $(arg roll_beverage_can_orange) -P $(arg pitch_beverage_can_orange) -Y $(arg yaw_beverage_can_orange)" />
+  
+  <param name="beverage_can_red" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/beverage_can_red.sdf'" />
+  <node name="beverage_can_red_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param beverage_can_red -sdf -model Beverage_Can_Red
+          -x $(arg x_beverage_can_red) -y $(arg y_beverage_can_red) -z $(arg z_beverage_can_red)
+          -R $(arg roll_beverage_can_red) -P $(arg pitch_beverage_can_red) -Y $(arg yaw_beverage_can_red)" />
+  
+  <param name="beverage_can_yellow" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/beverage_can_yellow.sdf'" />
+  <node name="beverage_can_yellow_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param beverage_can_yellow -sdf -model Beverage_Can_Yellow
+          -x $(arg x_beverage_can_yellow) -y $(arg y_beverage_can_yellow) -z $(arg z_beverage_can_yellow)
+          -R $(arg roll_beverage_can_yellow) -P $(arg pitch_beverage_can_yellow) -Y $(arg yaw_beverage_can_yellow)" />
+
+  <param name="paper_cup_orange" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/paper_cup_orange.sdf'" />
+  <node name="paper_cup_orange_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param paper_cup_orange -sdf -model Paper_Cup_Orange
+          -x $(arg x_paper_cup_orange) -y $(arg y_paper_cup_orange) -z $(arg z_paper_cup_orange)
+          -R $(arg roll_paper_cup_orange) -P $(arg pitch_paper_cup_orange) -Y $(arg yaw_paper_cup_orange)" />
+  
+  <param name="paper_cup_yellow" command="$(find xacro)/xacro '$(find artpark_gazebo)/buildings/paper_cup_yellow.sdf'" />
+  <node name="paper_cup_yellow_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param paper_cup_yellow -sdf -model Paper_Cup_Yellow
+          -x $(arg x_paper_cup_yellow) -y $(arg y_paper_cup_yellow) -z $(arg z_paper_cup_yellow)
+          -R $(arg roll_paper_cup_yellow) -P $(arg pitch_paper_cup_yellow) -Y $(arg yaw_paper_cup_yellow)" />
+
+  
+  <!-- <param name="robot_description" command="$(find xacro)/xacro '$(find artpark_description)/urdf/artpark_robot.urdf.xacro'" /> -->
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(find artpark_description)/urdf/artpark_robot_complete.urdf.xacro'" />
+  <!-- <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -param robot_description -model artpark_robot -x $(arg x_robot) -y $(arg y_robot) -z $(arg z_robot)" /> -->
+
+  <node name="robot_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-param robot_description -urdf -model artpark_robot
+          -x $(arg x_robot) -y $(arg y_robot) -z $(arg z_robot)
+          -R $(arg roll_robot) -P $(arg pitch_robot) -Y $(arg yaw_robot)" />
+  
+  <!-- <node name="simulation" pkg="artpark_description" type="simulation.py" /> -->
+
+  <node pkg="move_base" type="move_base" name="move_base" respawn="false" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find artpark_description)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find artpark_description)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find artpark_description)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find artpark_description)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find artpark_description)/config/move_base_params.yaml" command="load" />
+    <rosparam file="$(find artpark_description)/config/dwa_local_planner.yaml" command="load" />
+  </node>
+  
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+
+  <include file="$(find artpark_gazebo)/launch/amcl.launch">
+    <arg name="initial_pose_x" value="$(arg x_robot)"/>
+    <arg name="initial_pose_y" value="$(arg y_robot)"/>
+  </include>
+
+  <!-- <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+    <param name="base_frame" value="base_link" />
+    <param name="odom_frame" value="odom" />
+    <param name="delta" value="0.1" />
+  </node> -->
+
+  <arg name="map_file" default="$(find artpark_gazebo)/map/map.pgm" />
+  <!-- <node name="map_server" pkg="map_server" type="map_server">
+    <rosparam file="$(find artpark_gazebo)/map/map.yaml" command="load" param="map_file" subst_value="True">
+      $(arg map_file)
+    </rosparam>
+  </node> -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find artpark_gazebo)/map/map.yaml" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find artpark_description)/rviz/artpark.rviz"/>
+
+  <!-- <node name="tf_example" pkg="find_object_2d" type="tf_example" output="screen">
+	  <param name="map_frame_id" value="/map" type="str"/>
+		<param name="object_prefix" value="object" type="str"/>
+	</node> -->
+
+  <node name="joint_state_desired_publisher" pkg="topic_tools" type="relay" args="joint_states joint_states_desired" />
+
+  <node name="initialise" pkg="artpark_final" type="initialise.py" />
+
+
+  <!-- <include file="$(find find_object_2d)/launch/find_object_2d.launch">
+    <node name="find_object_2d" pkg="find_object_2d" type="find_object_2d" output="screen">
+    <arg name="gui" value="true" />
+    <param name="subscribe_depth" value="false" />
+    <arg name="objects_path" value="$(find artpark_gazebo)/Artpark_Images/Robot_Dustbin/" />
+    <arg name="rgb_topic" value="/camera_top/image_raw_top"
+
+    <remap from="/image" to="/camera_top/image_raw_top" />
+    <remap from="/rgb/camera_info" to="/camera_top/camera_info" />
+  </include> -->
+
+  <!-- <node name="find_object_3d" pkg="find_object_2d" type="find_object_2d" output="screen">
+		<param name="subscribe_depth" value="true" type="bool"/>
+		<param name="objects_path" value="$(find artpark_gazebo)/Artpark_Images/Robot_Dustbin/" type="str"/>
+		<param name="object_prefix" value="objects" type="str"/>
+		<param name="approx_sync" value="true" type="bool"/>
+		<param name="pnp" value="true" type="bool"/>
+		
+		<remap from="rgb/image_rect_color" to="/camera_top/color/image_raw_top"/>
+		<remap from="depth_registered/image_raw" to="/camera_top/depth/image_raw_top"/>
+		<remap from="depth_registered/camera_info" to="/camera_top/depth/camera_info"/>
+	</node> -->
+
+</launch>

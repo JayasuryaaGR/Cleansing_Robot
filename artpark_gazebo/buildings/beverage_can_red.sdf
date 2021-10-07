@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='Beverage_Can_Red'>
+    <static>false</static>
+    <pose>0 0 0 0 0 0</pose>
+
+    <link name="beverage_can_blue">
+        <collision name="beverage_can_red_collision">
+            <geometry>
+            <mesh>
+                <uri>$(find artpark_gazebo)/models/beverage_can.dae</uri>
+            </mesh>
+            </geometry>
+        </collision>
+        <visual name="beverage_can_red_visual">
+            <geometry>
+            <mesh>
+                <uri>$(find artpark_gazebo)/models/beverage_can.dae</uri>
+            </mesh>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/Red</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+  
+  </model>
+</sdf>

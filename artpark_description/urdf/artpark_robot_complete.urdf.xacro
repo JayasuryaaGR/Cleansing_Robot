@@ -1,0 +1,698 @@
+<?xml version='1.0'?>
+<robot name="artpark_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find artpark_description)/urdf/artpark_robot.gazebo" />
+  <xacro:include filename="$(find artpark_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.urdf.xacro" />
+
+  <gazebo>
+    <static>false</static>
+  </gazebo>
+
+  <link name="base_link" />
+
+  <link name="chasis">
+    <collision name='chasis_collision'>
+      <geometry>
+        <box size=".6 .6 .1"/>
+      </geometry>
+    </collision>
+    <visual name='chasis_visual'>
+      <geometry>
+        <box size=".6 .6 .1"/>
+      </geometry>
+    </visual>
+    <inertial name="chasis_link_inertial">
+      <mass value="2"/>
+      <inertia ixx="0.06167" ixy="0.0" ixz="0.0" iyy="0.06167" iyz="0.0" izz="0.12"/>
+    </inertial>
+  </link>
+
+  <joint name="chasis_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="chasis"/>
+    <origin xyz="0 0 0.15" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="body">
+    <collision name='body_collision'>
+      <geometry>
+        <box size=".3 .6 .6"/>
+      </geometry>
+    </collision>
+    <visual name='body_visual'>
+      <geometry>
+        <box size=".3 .6 .6"/>
+      </geometry>
+    </visual>
+    <inertial name="base_link_inertial">
+      <mass value="20"/>
+      <inertia ixx="1.2" ixy="0.0" ixz="0.0" iyy="0.75" iyz="0.0" izz="0.75"/>
+    </inertial>
+  </link>
+
+  <joint name="body_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="body"/>
+    <origin xyz="-0.15 0 .5" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <dynamics damping="1.0"/>
+  </joint>
+
+  <link name="laser">
+    <collision name="laser_collision">
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="laser_visual">
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <inertial name="laser_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.00000167" ixy="0.0" ixz="0.0" iyy="0.00000167" iyz="0.0" izz="0.00000167"/>
+    </inertial>
+  </link>
+
+  <joint name="laser_joint" type="fixed">
+    <parent link="arm_body"/>
+    <child link="laser"/>
+    <origin xyz=".141 0 .01" rpy="0.0 0.0 0.0"/>
+  </joint>
+
+  <link name="mop">
+    <collision name='mop_collision'>
+      <geometry>
+          <cylinder radius="0.25" length="0.1"/>
+      </geometry>
+    </collision>
+    <visual name='mop_visual'>
+      <geometry>
+        <mesh filename="file://$(find artpark_description)/meshes/mop.dae" scale="1.25 1.25 1"/>
+      </geometry>
+    </visual>
+    <inertial name="mop_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.0016" ixy="0.0" ixz="0.0" iyy="0.0016" iyz="0.0" izz="0.0031"/>
+    </inertial>
+  </link>
+
+  <joint name="mop_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="mop"/>
+    <origin xyz="0 0 0.055" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <dynamics damping="1.0"/>
+  </joint>
+
+  <link name="trash_holder">
+    <collision name='trash_holder_collision'>
+      <origin xyz="0.15 0 0.1" rpy="0.0 0.0 1.57"/>
+      <geometry>
+        <mesh filename="file://$(find artpark_description)/meshes/trash_holder.dae" scale="0.5 1 1"/>
+      </geometry>
+    </collision>
+    <visual name='trash_holder_visual'>
+      <origin xyz="0.15 0 0.1" rpy="0.0 0.0 1.57"/>
+      <geometry>
+        <mesh filename="file://$(find artpark_description)/meshes/trash_holder.dae" scale="0.5 1 1"/>
+      </geometry>
+    </visual>
+    <inertial name="trash_holder_inertial">
+      <origin xyz="0.15 0 0.1" rpy="0.0 0.0 1.57"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.0011" ixy="0.0" ixz="0.0" iyy="0.0011" iyz="0.0" izz="0.0015"/>
+    </inertial>
+  </link>
+
+  <joint name="trash_holder_joint" type="revolute">
+    <parent link="body"/>
+    <child link="trash_holder"/>
+    <origin xyz="-0.15 0 0.3" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0.1" lower="-2.7475" upper="0" velocity="0.1"/>
+  </joint>
+
+  <transmission name="trash_holder_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="trash_holder_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="trash_holder_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="arm_body">
+    <collision name='arm_body_collision'>
+      <geometry >
+        <box size="0.28 0.6 0.2"/>
+      </geometry>
+    </collision>
+    <visual name='arm_body_visual'>
+      <geometry >
+        <box size="0.28 0.6 0.2"/>
+      </geometry>
+    </visual>
+    <inertial name="arm_body_inertial">
+      <mass value="10"/>
+      <inertia ixx="0.375" ixy="0.0" ixz="0.0" iyy="0.14" iyz="0.0" izz="0.3653"/>
+    </inertial>
+  </link>
+
+  <joint name="arm_body_joint" type="revolute">
+    <parent link="chasis"/>
+    <child link="arm_body"/>
+    <origin xyz="0.16 0 .15" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <dynamics damping="1.0"/>
+  </joint>
+
+  <joint name="panda_joint0" type="revolute">
+    <origin xyz="0.05 0 0.1" rpy="0 0 1.5708" />
+    <parent link="arm_body" />
+    <child link="panda_link0" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" lower="0" upper="0" velocity="0" />
+    <dynamica damping="1.0" />
+  </joint>
+
+  <link name="front_left_caster">
+    <collision name='front_left_caster_collision'>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual name='front_left_caster_visual'>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+    <inertial name="front_left_caster_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000167" ixy="0.0" ixz="0.0" iyy="0.000167" iyz="0.0" izz="0.000167"/>
+    </inertial>
+  </link>
+
+  <joint name="front_left_caster_joint" type="revolute">
+    <parent link="chasis"/>
+    <child link="front_left_caster"/>
+    <origin xyz=".25 .25 0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <dynamics damping="1.0" />
+  </joint>
+
+  <!-- <transmission name="front_left_caster_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_left_caster_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="front_left_caster_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> -->
+
+  <link name="front_right_caster">
+    <collision name='front_right_caster_collision'>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual name='front_right_caster_visual'>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+    <inertial name="front_right_caster_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000167" ixy="0.0" ixz="0.0" iyy="0.000167" iyz="0.0" izz="0.000167"/>
+    </inertial>
+  </link>
+
+  <joint name="front_right_caster_joint" type="revolute">
+    <parent link="chasis"/>
+    <child link="front_right_caster"/>
+    <origin xyz=".25 -.25 0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <dynamics damping="1.0" />
+  </joint>
+
+  <!-- <transmission name="front_right_caster_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_right_caster_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="front_right_caster_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> -->
+
+  <link name="front_left_wheel">
+    <collision name='front_left_wheel_collision'>
+      <geometry>
+        <sphere radius=".05"/>
+      </geometry>
+    </collision>
+    <visual name='front_left_wheel_visual'>
+      <geometry>
+        <sphere radius=".05"/>
+      </geometry>
+    </visual>
+    <inertial name="front_left_wheel_inertial">
+      <mass value="1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="front_left_caster"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0 0 -0.1" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <transmission name="front_left_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_left_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="front_left_wheel_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="front_right_wheel">
+    <collision name='front_right_wheel_collision'>
+      <geometry>
+        <sphere radius=".05"/>
+      </geometry>
+    </collision>
+    <visual name='front_right_wheel_visual'>
+      <geometry>
+        <sphere radius=".05"/>
+      </geometry>
+    </visual>
+    <inertial name="front_right_wheel_inertial">
+      <mass value="1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <joint name="front_right_wheel_joint" type="continuous">
+    <parent link="front_right_caster"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0 0 -0.1" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <transmission name="front_right_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_right_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="front_right_wheel_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="rear_left_caster">
+    <collision name='rear_left_caster_collision'>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual name='rear_left_caster_visual'>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+    <inertial name="rear_left_caster_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000167" ixy="0.0" ixz="0.0" iyy="0.000167" iyz="0.0" izz="0.000167"/>
+    </inertial>
+  </link>
+
+  <joint name="rear_left_caster_joint" type="revolute">
+    <parent link="chasis"/>
+    <child link="rear_left_caster"/>
+    <origin xyz="-.25 .25 0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <dynamics damping="1.0" />
+  </joint>
+
+  <!-- <transmission name="rear_left_caster_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rear_left_caster_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rear_left_caster_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> -->
+
+  <link name="rear_left_wheel">
+    <collision name='rear_left_wheel_collision'>
+      <geometry>
+        <sphere radius=".05"/>
+      </geometry>
+    </collision>
+    <visual name='rear_left_wheel_visual'>
+      <geometry>
+        <sphere radius=".05"/>
+      </geometry>
+    </visual>
+    <inertial name="rear_left_wheel_inertial">
+      <mass value="1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="rear_left_caster"/>
+    <child link="rear_left_wheel"/>
+    <origin xyz="0 0 -0.1" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <transmission name="rear_left_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rear_left_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rear_left_wheel_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="rear_right_caster">
+    <collision name='rear_right_caster_collision'>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual name='rear_right_caster_visual'>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+    <inertial name="rear_right_caster_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000167" ixy="0.0" ixz="0.0" iyy="0.000167" iyz="0.0" izz="0.000167"/>
+    </inertial>
+  </link>
+
+  <joint name="rear_right_caster_joint" type="revolute">
+    <parent link="chasis"/>
+    <child link="rear_right_caster"/>
+    <origin xyz="-.25 -.25 0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <dynamics damping="1.0" />
+  </joint>
+
+  <!-- <transmission name="rear_right_caster_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rear_right_caster_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rear_right_caster_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> -->
+
+  <link name="rear_right_wheel">
+    <collision name='rear_right_wheel_collision'>
+      <geometry>
+        <sphere radius=".05"/>
+      </geometry>
+    </collision>
+    <visual name='rear_rigth_wheel_visual'>
+      <geometry>
+        <sphere radius=".05"/>
+      </geometry>
+    </visual>
+    <inertial name="rear_right_wheel_inertial">
+      <mass value="1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <parent link="rear_right_caster"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="0 0 -0.1" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <transmission name="rear_right_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rear_right_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rear_right_wheel_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="bottle">
+    <visual name="bottle_visual">
+      <geometry>
+        <cylinder radius="0.06" length="0.17"/>
+      </geometry>
+    </visual>
+    <inertial name="bottle_inertial">
+      <mass value="0.15"/>
+      <inertia ixx="0.00086" ixy="0.0" ixz="0.0" iyy="0.00016" iyz="0.0" izz="0.00086"/>
+    </inertial>
+  </link>
+
+  <joint name="bottle_joint" type="revolute">
+    <parent link="panda_link5"/>
+    <child link="bottle"/>
+    <origin xyz="0 0.02 -0.1" rpy="0 1.5708 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <link name="bottle_water1">
+    <visual name="bottle_water1_visual">
+      <geometry>
+        <cylinder radius="0.06" length="0.04"/>
+      </geometry>
+    </visual>
+    <inertial name="bottle_water1_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000067" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.0" izz="0.000107"/>
+    </inertial>
+  </link>
+
+  <joint name="bottle_water1_joint" type="revolute">
+    <parent link="bottle"/>
+    <child link="bottle_water1"/>
+    <origin xyz="0 0 -0.105" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <link name="bottle_water2">
+    <visual name="bottle_water2_visual">
+      <geometry>
+        <cylinder radius="0.06" length="0.04"/>
+      </geometry>
+    </visual>
+    <inertial name="bottle_water2_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000067" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.0" izz="0.000107"/>
+    </inertial>
+  </link>
+
+  <joint name="bottle_water2_joint" type="revolute">
+    <parent link="bottle"/>
+    <child link="bottle_water2"/>
+    <origin xyz="0 0 -0.065" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <link name="bottle_water3">
+    <visual name="bottle_water3_visual">
+      <geometry>
+        <cylinder radius="0.06" length="0.04"/>
+      </geometry>
+    </visual>
+    <inertial name="bottle_water3_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000067" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.0" izz="0.000107"/>
+    </inertial>
+  </link>
+
+  <joint name="bottle_water3_joint" type="revolute">
+    <parent link="bottle"/>
+    <child link="bottle_water3"/>
+    <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <link name="bottle_water4">
+    <visual name="bottle_water4_visual">
+      <geometry>
+        <cylinder radius="0.06" length="0.04"/>
+      </geometry>
+    </visual>
+    <inertial name="bottle_water4_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000067" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.0" izz="0.000107"/>
+    </inertial>
+  </link>
+
+  <joint name="bottle_water4_joint" type="revolute">
+    <parent link="bottle"/>
+    <child link="bottle_water4"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <link name="bottle_water5">
+    <visual name="bottle_water5_visual">
+      <geometry>
+        <cylinder radius="0.06" length="0.04"/>
+      </geometry>
+    </visual>
+    <inertial name="bottle_water5_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000067" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.0" izz="0.000107"/>
+    </inertial>
+  </link>
+
+  <joint name="bottle_water5_joint" type="revolute">
+    <parent link="bottle"/>
+    <child link="bottle_water5"/>
+    <origin xyz="0 0 0.04" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <!-- <link name="bottle_water6">
+    <visual name="bottle_water6_visual">
+      <geometry>
+        <cylinder radius="0.06" length="0.04"/>
+      </geometry>
+    </visual>
+    <inertial name="bottle_water6_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000067" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.0" izz="0.000107"/>
+    </inertial>
+  </link>
+
+  <joint name="bottle_water6_joint" type="revolute">
+    <parent link="bottle"/>
+    <child link="bottle_water6"/>
+    <origin xyz="0 0 0.065" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <link name="bottle_water7">
+    <visual name="bottle_water7_visual">
+      <geometry>
+        <cylinder radius="0.06" length="0.04"/>
+      </geometry>
+    </visual>
+    <inertial name="bottle_water7_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.000067" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.0" izz="0.000107"/>
+    </inertial>
+  </link>
+
+  <joint name="bottle_water7_joint" type="revolute">
+    <parent link="bottle"/>
+    <child link="bottle_water7"/>
+    <origin xyz="0 0 0.105" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint> -->
+
+  <link name="camera_bottom">
+    <collision name="camera_bottom_collision">
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="camera_bottom_visual">
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <inertial name="camera_bottom_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.00000167" ixy="0.0" ixz="0.0" iyy="0.00000167" iyz="0.0" izz="0.00000167"/>
+    </inertial>
+  </link>
+
+  <joint name="camera_bottom_joint" type="revolute">
+    <parent link="arm_body"/>
+    <child link="camera_bottom"/>
+    <origin xyz=".141 0 .08" rpy="0.0 0.8 0.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <link name="camera_top">
+    <inertial name="camera_bottom_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.00000167" ixy="0.0" ixz="0.0" iyy="0.00000167" iyz="0.0" izz="0.00000167"/>
+    </inertial>
+  </link>
+
+  <joint name="camera_top_joint" type="revolute">
+    <parent link="panda_link7"/>
+    <child link="camera_top"/>
+    <origin xyz=".045 0 .05" rpy="3.1408 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <!-- <link name="scrub">
+    <visual name="scrub_visual">
+      <geometry>
+        <box size="0.3 0.5 0.01"/>
+      </geometry>
+    </visual>
+    <inertial name="scrub_inertial">
+      <mass value="0.1"/>
+      <inertia ixx="0.00000167" ixy="0.0" ixz="0.0" iyy="0.00000167" iyz="0.0" izz="0.00000167"/>
+    </inertial>
+  </link>
+
+  <joint name="scrub_joint" type="revolute">
+    <parent link="panda_leftfinger"/>
+    <child link="scrub"/>
+    <origin xyz="0.1 0 0.05" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint> -->
+
+</robot>

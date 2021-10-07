@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='Paper_Cup_Yellow'>
+    <static>false</static>
+    <pose>0 0 0 0 0 0</pose>
+
+    <link name="paper_cup_yellow">
+        <collision name="paper_cup_yellow_collision">
+            <geometry>
+            <mesh>
+                <uri>$(find artpark_gazebo)/models/papercup.dae</uri>
+            </mesh>
+            </geometry>
+        </collision>
+        <visual name="paper_cup_yellow_visual">
+            <geometry>
+            <mesh>
+                <uri>$(find artpark_gazebo)/models/papercup.dae</uri>
+            </mesh>
+            </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/White</name>
+                </script>
+            </material>
+        </visual>
+    </link>
+  
+  </model>
+</sdf>
